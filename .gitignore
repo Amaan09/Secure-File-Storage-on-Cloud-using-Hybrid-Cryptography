@@ -1,0 +1,10 @@
+venv
+
+.vscode
+
+code/__pycache__
+code/decrypted_encrypted-plain.txt
+code/encrypted-key.txt
+code/encrypted-plain.txt
+code/private_keys.txt
+code/public_keys.txt
