@@ -2,6 +2,14 @@ import os
 import time
 import aes
 import rsa
+import cloudinary
+import cloudinary.uploader
+
+cloudinary.config( 
+  cloud_name = "securefilestoragecloud", 
+  api_key = "671392448133668", 
+  api_secret = "47cweUn3dXjEpBEhVpsrYy9MHj8" 
+)
 
 print('Press 1 for encryption smth and 2 for decryption')
 
@@ -11,7 +19,9 @@ if way == '1':
 
     print('Enter the file-name of text to be encrypted')
 
-    input_path = os.path.abspath(input())
+    pname=input()
+    input_path = os.path.abspath(pname)
+    
 
     print('Enter the file-name of the key')
 
@@ -43,8 +53,14 @@ if way == '1':
 
     with open(out_path, 'xb') as ff:
         ff.write(bytes(crypted_data))
+
+    with open(ff.name, 'rb') as file:
+        response= cloudinary.uploader.upload(file,resource_type = "raw", use_filename ='true')
+
+    print('Text file is encrypted and uploaded to cloud Sucessfully')
+    print(response['secure_url'])
     
-    print('Text file is encrypted Sucessfully')
+
     
     rsa.chooseKeys()
 
