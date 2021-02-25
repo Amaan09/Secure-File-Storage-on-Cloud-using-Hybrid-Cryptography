@@ -57,10 +57,8 @@ if way == '1':
     with open(ff.name, 'rb') as file:
         response= cloudinary.uploader.upload(file,resource_type = "raw", use_filename ='true')
 
-    print('Text file is encrypted and uploaded to cloud Sucessfully')
-    print(response['secure_url'])
+    print('Text file is encrypted successfully.')
     
-
     
     rsa.chooseKeys()
 
@@ -74,7 +72,8 @@ if way == '1':
     f_public.write(str(encrypted_key))
     f_public.close()
 
-    print('Encryption is Done!!')
+    print('Encryption is Done!! File uploaded to cloud.')
+    print(response['secure_url'])
 
 else:
 
