@@ -60,6 +60,7 @@ def encrypt_text():
 
    with open(ff.name, 'rb') as file:
         response= cloudinary.uploader.upload(file,resource_type = "raw", use_filename ='true')
+<<<<<<< HEAD
    session['response']=response['secure_url']
 
    rsa.chooseKeys()
@@ -78,7 +79,7 @@ def encryptkey():
      return render_template('enc_success.html',response=session['response'])
 
 
-#     print('Enter the file name of encrypted key')
+
 
 @app.route('/decrypt',methods=[ 'GET','POST'])
 def decrypt():
@@ -88,6 +89,33 @@ def decrypt():
 def decrypt_key():
     dec_key = (request.files['enckey']).filename
     d_key_path = os.path.abspath(dec_key)
+=======
+
+    print('Text file is encrypted successfully.')
+    
+    
+    rsa.chooseKeys()
+
+    file_option = input('Enter the file name of public key to encrypt main key')
+    
+    print('Encryption of key in progress.....')
+    print('Please wait it may take several minutes.....')    
+    message = "".join(temp_key)
+    encrypted_key = rsa.encrypt(message, file_option)
+    f_public = open('encrypted-key.txt', 'w')
+    f_public.write(str(encrypted_key))
+    f_public.close()
+
+    print('Encryption is Done!! File uploaded to cloud.')
+    print(response['secure_url'])
+
+else:
+
+    print('Enter the file name of encrypted key')
+
+    d_key_path = os.path.abspath(input())
+
+>>>>>>> d79bbae800c861846934a2561ea4bae7ed935932
     with open(d_key_path, 'r') as f:
         d_key = f.read()
 
@@ -125,6 +153,12 @@ def decrypt_text():
 #     print('ACHIEVED HYBRID CRYPTOGRAPHY SUCCESSFULLY')
 
 
+<<<<<<< HEAD
 if __name__ == '__main__':
     app.debug=True
     app.run()
+=======
+    print('File is Successfully Decrypted.')
+    print()
+    print('ACHIEVED HYBRID CRYPTOGRAPHY SUCCESSFULLY')
+>>>>>>> d79bbae800c861846934a2561ea4bae7ed935932
