@@ -1,0 +1,30 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/styles/encrypt1.css">
+</head>
+
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+            <div class="row text-white">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <h1 class="display-4 py-2 text-truncate">Encryption</h1>
+                    <div class="px-2">
+                        <form action="/encrypt1" method="POST" enctype=multipart/form-data
+                            class="justify-content-center">
+                            <div class="form-group">
+                                <label class="form-label" for="File1">input plain text file:</label>
+                                <input type="file" class="form-control" id="File1" name='plainfile' />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="File2">input key text file:</label>
+                                <input type="file" class="form-control" id="File2" name='key' />
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg">Encrypt</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
